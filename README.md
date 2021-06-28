@@ -59,6 +59,7 @@ spring:
             client-secret: web_app
 ```
 
+
 ### JHipster Control Center
 
 JHipster Control Center can help you to manage and control your application(s). You can start a local control center server (accessible on http://localhost:7419) with:
@@ -148,6 +149,7 @@ Note: There are still a few other things remaining to do for Leaflet that we won
 
 For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
 
+
 ## Building for production
 
 ### Packaging as jar
@@ -185,6 +187,16 @@ To launch your application's tests, run:
 ./gradlew test integrationTest jacocoTestReport
 ```
 
+### Policy testing
+
+To test the authz rego policies, run,
+
+```
+opa test ./src/main/resources/policies -v
+```
+
+> You might need opa cli (`brew install opa`)
+
 ### Client tests
 
 Unit tests are run by [Jest][]. They're located in [src/test/javascript/](src/test/javascript/) and can be run with:
@@ -194,6 +206,7 @@ npm test
 ```
 
 For more information, refer to the [Running tests page][].
+
 
 ### Code quality
 
