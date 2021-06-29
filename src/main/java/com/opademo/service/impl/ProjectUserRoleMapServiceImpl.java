@@ -1,16 +1,24 @@
 package com.opademo.service.impl;
 
+import com.opademo.domain.Project;
 import com.opademo.domain.ProjectUserRoleMap;
+import com.opademo.repository.ProjectRepository;
 import com.opademo.repository.ProjectUserRoleMapRepository;
+import com.opademo.security.opa.OPAClient;
+import com.opademo.service.ProjectService;
 import com.opademo.service.ProjectUserRoleMapService;
+import com.opademo.service.dto.ProjectDTO;
 import com.opademo.service.dto.ProjectUserRoleMapDTO;
 import com.opademo.service.mapper.ProjectUserRoleMapMapper;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,17 +35,31 @@ public class ProjectUserRoleMapServiceImpl implements ProjectUserRoleMapService 
 
     private final ProjectUserRoleMapMapper projectUserRoleMapMapper;
 
+    private final ProjectRepository projectRepository;
+
+    private final OPAClient opaClient;
+
     public ProjectUserRoleMapServiceImpl(
         ProjectUserRoleMapRepository projectUserRoleMapRepository,
-        ProjectUserRoleMapMapper projectUserRoleMapMapper
+        ProjectUserRoleMapMapper projectUserRoleMapMapper,
+        ProjectRepository projectRepository,
+        OPAClient opaClient
     ) {
         this.projectUserRoleMapRepository = projectUserRoleMapRepository;
         this.projectUserRoleMapMapper = projectUserRoleMapMapper;
+        this.projectRepository = projectRepository;
+        this.opaClient = opaClient;
     }
 
     @Override
-    public ProjectUserRoleMapDTO save(ProjectUserRoleMapDTO projectUserRoleMapDTO) {
+    public ProjectUserRoleMapDTO save(ProjectUserRoleMapDTO projectUserRoleMapDTO, boolean validate) {
         log.debug("Request to save ProjectUserRoleMap : {}", projectUserRoleMapDTO);
+        if (validate) {
+            var project = projectRepository.findById(projectUserRoleMapDTO.getProjectId().getId()).orElse(new Project());
+            if (!opaClient.authRequest("SHARE_PROJECT", Map.of("owner", project.getOwner()))) {
+                throw new AccessDeniedException("Access Denied");
+            }
+        }
         ProjectUserRoleMap projectUserRoleMap = projectUserRoleMapMapper.toEntity(projectUserRoleMapDTO);
         projectUserRoleMap = projectUserRoleMapRepository.save(projectUserRoleMap);
         return projectUserRoleMapMapper.toDto(projectUserRoleMap);

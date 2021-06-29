@@ -50,7 +50,7 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public ProjectDTO save(ProjectDTO projectDTO) {
         log.debug("Request to save Project : {}", projectDTO);
-        Project project = projectMapper.toEntity(projectDTO);
+        var project = projectMapper.toEntity(projectDTO);
         project.setOwner(SecurityUtils.getCurrentUserLogin().orElse("NA"));
         project = projectRepository.save(project);
         var projectUserRoleMapDTO = new ProjectUserRoleMapDTO();
@@ -59,7 +59,7 @@ public class ProjectServiceImpl implements ProjectService {
         projectUserRoleMapDTO.setProjectId(result);
         projectUserRoleMapDTO.setRoleId(role);
         projectUserRoleMapDTO.setUser(project.getOwner());
-        projectMapService.save(projectUserRoleMapDTO);
+        projectMapService.save(projectUserRoleMapDTO, false);
         return result;
     }
 

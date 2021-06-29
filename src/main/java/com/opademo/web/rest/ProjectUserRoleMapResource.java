@@ -59,7 +59,7 @@ public class ProjectUserRoleMapResource {
         if (projectUserRoleMapDTO.getId() != null) {
             throw new BadRequestAlertException("A new projectUserRoleMap cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        ProjectUserRoleMapDTO result = projectUserRoleMapService.save(projectUserRoleMapDTO);
+        ProjectUserRoleMapDTO result = projectUserRoleMapService.save(projectUserRoleMapDTO, true);
         return ResponseEntity
             .created(new URI("/api/project-user-role-maps/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
@@ -93,7 +93,7 @@ public class ProjectUserRoleMapResource {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
 
-        ProjectUserRoleMapDTO result = projectUserRoleMapService.save(projectUserRoleMapDTO);
+        ProjectUserRoleMapDTO result = projectUserRoleMapService.save(projectUserRoleMapDTO, true);
         return ResponseEntity
             .ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, projectUserRoleMapDTO.getId().toString()))

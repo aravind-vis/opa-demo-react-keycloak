@@ -14,7 +14,7 @@ public interface ProjectUserRoleMapService {
      * @param projectUserRoleMapDTO the entity to save.
      * @return the persisted entity.
      */
-    ProjectUserRoleMapDTO save(ProjectUserRoleMapDTO projectUserRoleMapDTO);
+    ProjectUserRoleMapDTO save(ProjectUserRoleMapDTO projectUserRoleMapDTO, boolean validate);
 
     /**
      * Partially updates a projectUserRoleMap.
