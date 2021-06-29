@@ -4,15 +4,7 @@
       "home": {
         "title": "Roles",
         "refreshListLabel": "Refresh list",
-        "createLabel": "Role-ஐ உருவாக்கு",
-        "createOrEditLabel": "Role -ஐ மாற்று (அ) உருவாக்கு",
         "notFound": "No Roles found"
-      },
-      "created": "Role புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
-      "updated": "Role மாற்றப்பட்டது, அடையாளம்  {{ param }}",
-      "deleted": "A Role நீக்கப்பட்டது, அடையாளம {{ param }}",
-      "delete": {
-        "question": "நீக்குவதற்கு உறுதி செய் Role {{ id }}?"
       },
       "detail": {
         "title": "Role"

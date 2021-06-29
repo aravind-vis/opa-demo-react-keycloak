@@ -4,10 +4,6 @@ import { Button, Row, Col, FormText } from 'reactstrap';
 import { isNumber, Translate, translate, ValidatedField, ValidatedForm } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { getEntity, updateEntity, createEntity, reset } from './role.reducer';
-import { IRole } from 'app/shared/model/role.model';
-import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
-import { mapIdList } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 export const RoleUpdate = (props: RouteComponentProps<{ id: string }>) => {
@@ -25,14 +21,6 @@ export const RoleUpdate = (props: RouteComponentProps<{ id: string }>) => {
   };
 
   useEffect(() => {
-    if (isNew) {
-      dispatch(reset());
-    } else {
-      dispatch(getEntity(props.match.params.id));
-    }
-  }, []);
-
-  useEffect(() => {
     if (updateSuccess) {
       handleClose();
     }
@@ -43,12 +31,6 @@ export const RoleUpdate = (props: RouteComponentProps<{ id: string }>) => {
       ...roleEntity,
       ...values,
     };
-
-    if (isNew) {
-      dispatch(createEntity(entity));
-    } else {
-      dispatch(updateEntity(entity));
-    }
   };
 
   const defaultValues = () =>

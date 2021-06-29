@@ -97,14 +97,14 @@ export const ProjectUpdate = (props: RouteComponentProps<{ id: string }>) => {
                   minLength: { value: 3, message: translate('entity.validation.minlength', { min: 3 }) },
                 }}
               />
-              <ValidatedField
+              {/*<ValidatedField
                 label={translate('opademoreactkeycloakApp.project.owner')}
                 id="project-owner"
                 name="owner"
                 data-cy="owner"
                 type="text"
                 validate={{
-                  required: { value: true, message: translate('entity.validation.required') },
+                  required: { value: false, message: translate('entity.validation.required') },
                 }}
               />
               <ValidatedField
@@ -117,7 +117,7 @@ export const ProjectUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 validate={{
                   required: { value: true, message: translate('entity.validation.required') },
                 }}
-              />
+              />*/}
               <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/project" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;

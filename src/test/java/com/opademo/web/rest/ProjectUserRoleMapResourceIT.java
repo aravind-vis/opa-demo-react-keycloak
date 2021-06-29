@@ -9,6 +9,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.opademo.IntegrationTest;
 import com.opademo.domain.ProjectUserRoleMap;
 import com.opademo.repository.ProjectUserRoleMapRepository;
+import com.opademo.service.dto.ProjectUserRoleMapDTO;
+import com.opademo.service.mapper.ProjectUserRoleMapMapper;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
@@ -41,6 +43,9 @@ class ProjectUserRoleMapResourceIT {
 
     @Autowired
     private ProjectUserRoleMapRepository projectUserRoleMapRepository;
+
+    @Autowired
+    private ProjectUserRoleMapMapper projectUserRoleMapMapper;
 
     @Autowired
     private EntityManager em;
@@ -82,12 +87,13 @@ class ProjectUserRoleMapResourceIT {
     void createProjectUserRoleMap() throws Exception {
         int databaseSizeBeforeCreate = projectUserRoleMapRepository.findAll().size();
         // Create the ProjectUserRoleMap
+        ProjectUserRoleMapDTO projectUserRoleMapDTO = projectUserRoleMapMapper.toDto(projectUserRoleMap);
         restProjectUserRoleMapMockMvc
             .perform(
                 post(ENTITY_API_URL)
                     .with(csrf())
                     .contentType(MediaType.APPLICATION_JSON)
-                    .content(TestUtil.convertObjectToJsonBytes(projectUserRoleMap))
+                    .content(TestUtil.convertObjectToJsonBytes(projectUserRoleMapDTO))
             )
             .andExpect(status().isCreated());
 
@@ -103,6 +109,7 @@ class ProjectUserRoleMapResourceIT {
     void createProjectUserRoleMapWithExistingId() throws Exception {
         // Create the ProjectUserRoleMap with an existing ID
         projectUserRoleMap.setId(1L);
+        ProjectUserRoleMapDTO projectUserRoleMapDTO = projectUserRoleMapMapper.toDto(projectUserRoleMap);
 
         int databaseSizeBeforeCreate = projectUserRoleMapRepository.findAll().size();
 
@@ -112,7 +119,7 @@ class ProjectUserRoleMapResourceIT {
                 post(ENTITY_API_URL)
                     .with(csrf())
                     .contentType(MediaType.APPLICATION_JSON)
-                    .content(TestUtil.convertObjectToJsonBytes(projectUserRoleMap))
+                    .content(TestUtil.convertObjectToJsonBytes(projectUserRoleMapDTO))
             )
             .andExpect(status().isBadRequest());
 
@@ -129,13 +136,14 @@ class ProjectUserRoleMapResourceIT {
         projectUserRoleMap.setUser(null);
 
         // Create the ProjectUserRoleMap, which fails.
+        ProjectUserRoleMapDTO projectUserRoleMapDTO = projectUserRoleMapMapper.toDto(projectUserRoleMap);
 
         restProjectUserRoleMapMockMvc
             .perform(
                 post(ENTITY_API_URL)
                     .with(csrf())
                     .contentType(MediaType.APPLICATION_JSON)
-                    .content(TestUtil.convertObjectToJsonBytes(projectUserRoleMap))
+                    .content(TestUtil.convertObjectToJsonBytes(projectUserRoleMapDTO))
             )
             .andExpect(status().isBadRequest());
 
@@ -193,13 +201,14 @@ class ProjectUserRoleMapResourceIT {
         // Disconnect from session so that the updates on updatedProjectUserRoleMap are not directly saved in db
         em.detach(updatedProjectUserRoleMap);
         updatedProjectUserRoleMap.user(UPDATED_USER);
+        ProjectUserRoleMapDTO projectUserRoleMapDTO = projectUserRoleMapMapper.toDto(updatedProjectUserRoleMap);
 
         restProjectUserRoleMapMockMvc
             .perform(
-                put(ENTITY_API_URL_ID, updatedProjectUserRoleMap.getId())
+                put(ENTITY_API_URL_ID, projectUserRoleMapDTO.getId())
                     .with(csrf())
                     .contentType(MediaType.APPLICATION_JSON)
-                    .content(TestUtil.convertObjectToJsonBytes(updatedProjectUserRoleMap))
+                    .content(TestUtil.convertObjectToJsonBytes(projectUserRoleMapDTO))
             )
             .andExpect(status().isOk());
 
@@ -216,13 +225,16 @@ class ProjectUserRoleMapResourceIT {
         int databaseSizeBeforeUpdate = projectUserRoleMapRepository.findAll().size();
         projectUserRoleMap.setId(count.incrementAndGet());
 
+        // Create the ProjectUserRoleMap
+        ProjectUserRoleMapDTO projectUserRoleMapDTO = projectUserRoleMapMapper.toDto(projectUserRoleMap);
+
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
         restProjectUserRoleMapMockMvc
             .perform(
-                put(ENTITY_API_URL_ID, projectUserRoleMap.getId())
+                put(ENTITY_API_URL_ID, projectUserRoleMapDTO.getId())
                     .with(csrf())
                     .contentType(MediaType.APPLICATION_JSON)
-                    .content(TestUtil.convertObjectToJsonBytes(projectUserRoleMap))
+                    .content(TestUtil.convertObjectToJsonBytes(projectUserRoleMapDTO))
             )
             .andExpect(status().isBadRequest());
 
@@ -237,13 +249,16 @@ class ProjectUserRoleMapResourceIT {
         int databaseSizeBeforeUpdate = projectUserRoleMapRepository.findAll().size();
         projectUserRoleMap.setId(count.incrementAndGet());
 
+        // Create the ProjectUserRoleMap
+        ProjectUserRoleMapDTO projectUserRoleMapDTO = projectUserRoleMapMapper.toDto(projectUserRoleMap);
+
         // If url ID doesn't match entity ID, it will throw BadRequestAlertException
         restProjectUserRoleMapMockMvc
             .perform(
                 put(ENTITY_API_URL_ID, count.incrementAndGet())
                     .with(csrf())
                     .contentType(MediaType.APPLICATION_JSON)
-                    .content(TestUtil.convertObjectToJsonBytes(projectUserRoleMap))
+                    .content(TestUtil.convertObjectToJsonBytes(projectUserRoleMapDTO))
             )
             .andExpect(status().isBadRequest());
 
@@ -258,13 +273,16 @@ class ProjectUserRoleMapResourceIT {
         int databaseSizeBeforeUpdate = projectUserRoleMapRepository.findAll().size();
         projectUserRoleMap.setId(count.incrementAndGet());
 
+        // Create the ProjectUserRoleMap
+        ProjectUserRoleMapDTO projectUserRoleMapDTO = projectUserRoleMapMapper.toDto(projectUserRoleMap);
+
         // If url ID doesn't match entity ID, it will throw BadRequestAlertException
         restProjectUserRoleMapMockMvc
             .perform(
                 put(ENTITY_API_URL)
                     .with(csrf())
                     .contentType(MediaType.APPLICATION_JSON)
-                    .content(TestUtil.convertObjectToJsonBytes(projectUserRoleMap))
+                    .content(TestUtil.convertObjectToJsonBytes(projectUserRoleMapDTO))
             )
             .andExpect(status().isMethodNotAllowed());
 
@@ -337,13 +355,16 @@ class ProjectUserRoleMapResourceIT {
         int databaseSizeBeforeUpdate = projectUserRoleMapRepository.findAll().size();
         projectUserRoleMap.setId(count.incrementAndGet());
 
+        // Create the ProjectUserRoleMap
+        ProjectUserRoleMapDTO projectUserRoleMapDTO = projectUserRoleMapMapper.toDto(projectUserRoleMap);
+
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
         restProjectUserRoleMapMockMvc
             .perform(
-                patch(ENTITY_API_URL_ID, projectUserRoleMap.getId())
+                patch(ENTITY_API_URL_ID, projectUserRoleMapDTO.getId())
                     .with(csrf())
                     .contentType("application/merge-patch+json")
-                    .content(TestUtil.convertObjectToJsonBytes(projectUserRoleMap))
+                    .content(TestUtil.convertObjectToJsonBytes(projectUserRoleMapDTO))
             )
             .andExpect(status().isBadRequest());
 
@@ -358,13 +379,16 @@ class ProjectUserRoleMapResourceIT {
         int databaseSizeBeforeUpdate = projectUserRoleMapRepository.findAll().size();
         projectUserRoleMap.setId(count.incrementAndGet());
 
+        // Create the ProjectUserRoleMap
+        ProjectUserRoleMapDTO projectUserRoleMapDTO = projectUserRoleMapMapper.toDto(projectUserRoleMap);
+
         // If url ID doesn't match entity ID, it will throw BadRequestAlertException
         restProjectUserRoleMapMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, count.incrementAndGet())
                     .with(csrf())
                     .contentType("application/merge-patch+json")
-                    .content(TestUtil.convertObjectToJsonBytes(projectUserRoleMap))
+                    .content(TestUtil.convertObjectToJsonBytes(projectUserRoleMapDTO))
             )
             .andExpect(status().isBadRequest());
 
@@ -379,13 +403,16 @@ class ProjectUserRoleMapResourceIT {
         int databaseSizeBeforeUpdate = projectUserRoleMapRepository.findAll().size();
         projectUserRoleMap.setId(count.incrementAndGet());
 
+        // Create the ProjectUserRoleMap
+        ProjectUserRoleMapDTO projectUserRoleMapDTO = projectUserRoleMapMapper.toDto(projectUserRoleMap);
+
         // If url ID doesn't match entity ID, it will throw BadRequestAlertException
         restProjectUserRoleMapMockMvc
             .perform(
                 patch(ENTITY_API_URL)
                     .with(csrf())
                     .contentType("application/merge-patch+json")
-                    .content(TestUtil.convertObjectToJsonBytes(projectUserRoleMap))
+                    .content(TestUtil.convertObjectToJsonBytes(projectUserRoleMapDTO))
             )
             .andExpect(status().isMethodNotAllowed());
 
