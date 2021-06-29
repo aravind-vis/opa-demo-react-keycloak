@@ -19,5 +19,8 @@
                                  constraintName="fk_project_user_role_map__role_id_id"
                                  referencedColumnNames="id"
                                  referencedTableName="role"/>
+
+        <addUniqueConstraint tableName="project_user_role_map" columnNames="jhi_user, project_id_id, role_id_id"></addUniqueConstraint>
+
     </changeSet>
 </databaseChangeLog>

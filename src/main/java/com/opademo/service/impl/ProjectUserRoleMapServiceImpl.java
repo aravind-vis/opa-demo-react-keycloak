@@ -4,6 +4,7 @@ import com.opademo.domain.Project;
 import com.opademo.domain.ProjectUserRoleMap;
 import com.opademo.repository.ProjectRepository;
 import com.opademo.repository.ProjectUserRoleMapRepository;
+import com.opademo.security.SecurityUtils;
 import com.opademo.security.opa.OPAClient;
 import com.opademo.service.ProjectService;
 import com.opademo.service.ProjectUserRoleMapService;
@@ -56,11 +57,20 @@ public class ProjectUserRoleMapServiceImpl implements ProjectUserRoleMapService 
         log.debug("Request to save ProjectUserRoleMap : {}", projectUserRoleMapDTO);
         if (validate) {
             var project = projectRepository.findById(projectUserRoleMapDTO.getProjectId().getId()).orElse(new Project());
-            if (!opaClient.authRequest("SHARE_PROJECT", Map.of("owner", project.getOwner()))) {
+            var user = SecurityUtils.getCurrentUserLogin().orElse("NA");
+            var inputMap = new HashMap<String, Object>();
+            inputMap.put("owner", project.getOwner());
+            if (!project.getOwner().equals(user)) {
+                var projectRole = projectUserRoleMapRepository.findProjectUserRoleMapByUser(user);
+                var roleList = projectRole.stream().map(p -> p.getRoleId().getRoleName()).collect(Collectors.toList());
+                inputMap.put("projectRole", roleList);
+            }
+
+            if (!opaClient.authRequest("SHARE_PROJECT", inputMap)) {
                 throw new AccessDeniedException("Access Denied");
             }
         }
-        ProjectUserRoleMap projectUserRoleMap = projectUserRoleMapMapper.toEntity(projectUserRoleMapDTO);
+        var projectUserRoleMap = projectUserRoleMapMapper.toEntity(projectUserRoleMapDTO);
         projectUserRoleMap = projectUserRoleMapRepository.save(projectUserRoleMap);
         return projectUserRoleMapMapper.toDto(projectUserRoleMap);
     }
