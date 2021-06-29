@@ -1,0 +1,28 @@
+{
+  "opademoreactkeycloakApp": {
+    "post": {
+      "home": {
+        "title": "Posts",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Post-ஐ உருவாக்கு",
+        "createOrEditLabel": "Post -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Posts found"
+      },
+      "created": "Post புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Post மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Post நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Post {{ id }}?"
+      },
+      "detail": {
+        "title": "Post"
+      },
+      "id": "ID",
+      "title": "Title",
+      "content": "Content",
+      "date": "Date",
+      "blog": "Blog",
+      "tag": "Tag"
+    }
+  }
+}

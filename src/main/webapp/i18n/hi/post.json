@@ -1,0 +1,28 @@
+{
+  "opademoreactkeycloakApp": {
+    "post": {
+      "home": {
+        "title": "Posts",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नया Post बनाएँ",
+        "createOrEditLabel": "Post बनाएँ या संपादित करें",
+        "notFound": "No Posts found"
+      },
+      "created": "एक नया Post [identifier: {{ param }}] तैयार है",
+      "updated": "एक Post [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Post [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Post [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Post"
+      },
+      "id": "ID",
+      "title": "Title",
+      "content": "Content",
+      "date": "Date",
+      "blog": "Blog",
+      "tag": "Tag"
+    }
+  }
+}

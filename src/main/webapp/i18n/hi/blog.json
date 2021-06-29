@@ -1,0 +1,26 @@
+{
+  "opademoreactkeycloakApp": {
+    "blog": {
+      "home": {
+        "title": "Blogs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नया Blog बनाएँ",
+        "createOrEditLabel": "Blog बनाएँ या संपादित करें",
+        "notFound": "No Blogs found"
+      },
+      "created": "एक नया Blog [identifier: {{ param }}] तैयार है",
+      "updated": "एक Blog [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Blog [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Blog [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Blog"
+      },
+      "id": "ID",
+      "name": "Name",
+      "handle": "Handle",
+      "user": "User"
+    }
+  }
+}

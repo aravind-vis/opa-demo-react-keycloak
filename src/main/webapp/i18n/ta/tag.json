@@ -1,0 +1,25 @@
+{
+  "opademoreactkeycloakApp": {
+    "tag": {
+      "home": {
+        "title": "Tags",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Tag-ஐ உருவாக்கு",
+        "createOrEditLabel": "Tag -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Tags found"
+      },
+      "created": "Tag புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Tag மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Tag நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Tag {{ id }}?"
+      },
+      "detail": {
+        "title": "Tag"
+      },
+      "id": "ID",
+      "name": "Name",
+      "post": "Post"
+    }
+  }
+}
