@@ -93,6 +93,10 @@ export const Project = (props: RouteComponentProps<{ url: string }>) => {
 
   const { match } = props;
 
+  const navigateToRoleMap = () => {
+    window.location.href = 'http://localhost:9000/project-user-role-map/new?idx=1';
+  };
+
   return (
     <div>
       <h2 id="project-heading" data-cy="ProjectHeading">
@@ -150,6 +154,12 @@ export const Project = (props: RouteComponentProps<{ url: string }>) => {
                     <td>{project.createdOn ? <TextFormat type="date" value={project.createdOn} format={APP_DATE_FORMAT} /> : null}</td>
                     <td className="text-right">
                       <div className="btn-group flex-btn-group-container">
+                        <Button onClick={() => navigateToRoleMap()} color="info" size="sm" data-cy="entityDetailsButton">
+                          <FontAwesomeIcon icon="user" />{' '}
+                          <span className="d-none d-md-inline">
+                            <Translate contentKey="entity.action.share">Share</Translate>
+                          </span>
+                        </Button>
                         <Button tag={Link} to={`${match.url}/${project.id}`} color="info" size="sm" data-cy="entityDetailsButton">
                           <FontAwesomeIcon icon="eye" />{' '}
                           <span className="d-none d-md-inline">

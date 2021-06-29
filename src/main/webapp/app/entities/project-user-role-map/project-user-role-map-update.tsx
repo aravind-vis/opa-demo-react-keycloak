@@ -13,6 +13,7 @@ import { IProjectUserRoleMap } from 'app/shared/model/project-user-role-map.mode
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { mapIdList } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
+import RoleDetail from '../role/role-detail';
 
 export const ProjectUserRoleMapUpdate = (props: RouteComponentProps<{ id: string }>) => {
   const dispatch = useAppDispatch();
@@ -61,6 +62,16 @@ export const ProjectUserRoleMapUpdate = (props: RouteComponentProps<{ id: string
       dispatch(updateEntity(entity));
     }
   };
+
+  var defaultProjectName;
+  var defaultRoleName = '';
+
+  const url = window.location.href;
+  if (url.indexOf('?') > -1 && RoleDetail.length > 0) {
+    const index = parseInt(url.substring(url.indexOf('=') + 1));
+    defaultProjectName = projects.length > index ? projects[index].name : '';
+    defaultRoleName = roles.length > index ? roles[index].roleName : '';
+  }
 
   const defaultValues = () =>
     isNew
@@ -118,8 +129,8 @@ export const ProjectUserRoleMapUpdate = (props: RouteComponentProps<{ id: string
                 <option value="" key="0" />
                 {projects
                   ? projects.map(otherEntity => (
-                      <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.id}
+                      <option value={otherEntity.id} key={otherEntity.id} placeholder={defaultProjectName}>
+                        {otherEntity.name}
                       </option>
                     ))
                   : null}
@@ -134,8 +145,8 @@ export const ProjectUserRoleMapUpdate = (props: RouteComponentProps<{ id: string
                 <option value="" key="0" />
                 {roles
                   ? roles.map(otherEntity => (
-                      <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.id}
+                      <option value={otherEntity.id} key={otherEntity.id} defaultValue={defaultRoleName}>
+                        {otherEntity.roleName}
                       </option>
                     ))
                   : null}

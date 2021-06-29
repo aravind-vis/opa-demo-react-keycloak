@@ -19,8 +19,8 @@
       },
       "id": "ID",
       "user": "User",
-      "projectId": "Project Id",
-      "roleId": "Role Id"
+      "projectId": "Project Name",
+      "roleId": "Role Name"
     }
   }
 }

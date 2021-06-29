@@ -86,6 +86,10 @@ export default () => next => action => {
             addErrorAlert('Not found', 'error.url.not.found');
             break;
 
+          case 403:
+            addErrorAlert('Project not created', "User doesn't have enough permission.", data);
+            break;
+
           default:
             if (typeof data === 'string' && data !== '') {
               addErrorAlert(data);
