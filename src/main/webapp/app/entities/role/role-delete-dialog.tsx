@@ -5,15 +5,8 @@ import { Translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { useAppDispatch, useAppSelector } from 'app/config/store';
-import { getEntity, deleteEntity } from './role.reducer';
 
 export const RoleDeleteDialog = (props: RouteComponentProps<{ id: string }>) => {
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(getEntity(props.match.params.id));
-  }, []);
-
   const roleEntity = useAppSelector(state => state.role.entity);
   const updateSuccess = useAppSelector(state => state.role.updateSuccess);
 
@@ -26,10 +19,6 @@ export const RoleDeleteDialog = (props: RouteComponentProps<{ id: string }>) => 
       handleClose();
     }
   }, [updateSuccess]);
-
-  const confirmDelete = () => {
-    dispatch(deleteEntity(roleEntity.id));
-  };
 
   return (
     <Modal isOpen toggle={handleClose}>
@@ -46,11 +35,6 @@ export const RoleDeleteDialog = (props: RouteComponentProps<{ id: string }>) => 
           <FontAwesomeIcon icon="ban" />
           &nbsp;
           <Translate contentKey="entity.action.cancel">Cancel</Translate>
-        </Button>
-        <Button id="jhi-confirm-delete-role" data-cy="entityConfirmDeleteButton" color="danger" onClick={confirmDelete}>
-          <FontAwesomeIcon icon="trash" />
-          &nbsp;
-          <Translate contentKey="entity.action.delete">Delete</Translate>
         </Button>
       </ModalFooter>
     </Modal>

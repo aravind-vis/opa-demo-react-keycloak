@@ -1,0 +1,4 @@
+id;role_name;role_description
+1;OWNER;This is the owner role for the product
+2;DATA_SCIENTIST;The user has a data scientist role
+3;REVIEWER;The use has a reviewer role

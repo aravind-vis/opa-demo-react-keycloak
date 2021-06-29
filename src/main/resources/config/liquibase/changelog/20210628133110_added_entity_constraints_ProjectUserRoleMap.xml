@@ -20,6 +20,7 @@
                                  referencedColumnNames="id"
                                  referencedTableName="role"/>
 
-        <addUniqueConstraint tableName="project_user_role_map" columnNames="user,project_id_id,role_id_id"/>
+        <addUniqueConstraint tableName="project_user_role_map" columnNames="jhi_user, project_id_id, role_id_id"></addUniqueConstraint>
+
     </changeSet>
 </databaseChangeLog>

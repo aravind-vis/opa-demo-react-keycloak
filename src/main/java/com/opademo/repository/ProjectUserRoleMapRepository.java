@@ -1,6 +1,8 @@
 package com.opademo.repository;
 
 import com.opademo.domain.ProjectUserRoleMap;
+import java.util.List;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 
@@ -9,4 +11,6 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface ProjectUserRoleMapRepository extends JpaRepository<ProjectUserRoleMap, Long> {}
+public interface ProjectUserRoleMapRepository extends JpaRepository<ProjectUserRoleMap, Long> {
+    List<ProjectUserRoleMap> findProjectUserRoleMapByUser(String user);
+}

@@ -18,10 +18,10 @@
                 <constraints nullable="false" />
             </column>
             <column name="project_id_id" type="bigint">
-                <constraints nullable="true" unique="true" uniqueConstraintName="ux_project_user_role_map__project_id_id" />
+                <constraints nullable="true" unique="false" uniqueConstraintName="ux_project_user_role_map__project_id_id" />
             </column>
             <column name="role_id_id" type="bigint">
-                <constraints nullable="true" unique="true" uniqueConstraintName="ux_project_user_role_map__role_id_id" />
+                <constraints nullable="true" unique="false" uniqueConstraintName="ux_project_user_role_map__role_id_id" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>

@@ -21,3 +21,6 @@ relationship OneToOne{
 }
 
 paginate Project with infinite-scroll
+readOnly Role
+dto * with mapstruct
+service * with serviceImpl

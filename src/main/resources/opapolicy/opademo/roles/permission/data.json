@@ -1,0 +1,6 @@
+{
+  "acls": {
+    "DATA_SCIENTIST": ["VIEW_PROJECT", "DELETE_PROJECT", "SHARE_PROJECT"],
+    "REVIEWER": ["VIEW_PROJECT"]
+  }
+}
