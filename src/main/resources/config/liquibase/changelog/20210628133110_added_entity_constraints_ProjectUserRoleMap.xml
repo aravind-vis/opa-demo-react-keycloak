@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity ProjectUserRoleMap.
+    -->
+    <changeSet id="20210628133110-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="project_id_id"
+                                 baseTableName="project_user_role_map"
+                                 constraintName="fk_project_user_role_map__project_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="project"/>
+
+        <addForeignKeyConstraint baseColumnNames="role_id_id"
+                                 baseTableName="project_user_role_map"
+                                 constraintName="fk_project_user_role_map__role_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="role"/>
+
+        <addUniqueConstraint tableName="project_user_role_map" columnNames="user,project_id_id,role_id_id"/>
+    </changeSet>
+</databaseChangeLog>

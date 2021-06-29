@@ -19,6 +19,7 @@ logging:
     tech.jhipster: DEBUG
     org.hibernate.SQL: DEBUG
     com.opademo: DEBUG
+    org.apache: DEBUG
 
 eureka:
   instance:
@@ -115,3 +116,19 @@ jhipster:
 # ===================================================================
 
 # application:
+
+pdp:
+  enable: true
+  allowOnFailure: false
+  port: 8181
+  hostname: localhost
+  policy:
+    path: /opademo/authz
+  readTimeout:
+    milliseconds: 5000
+  connectionTimeout:
+    milliseconds: 5000
+  retry:
+    maxAttempts: 2
+    backoff:
+      milliseconds: 250

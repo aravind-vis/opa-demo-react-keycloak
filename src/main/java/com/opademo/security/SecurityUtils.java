@@ -76,6 +76,11 @@ public final class SecurityUtils {
         return authorities.stream().map(GrantedAuthority::getAuthority);
     }
 
+    public static String[] getAuthoritiesAsString() {
+        Stream<String> authorities = getAuthorities(SecurityContextHolder.getContext().getAuthentication());
+        return authorities.toArray(String[]::new);
+    }
+
     public static List<GrantedAuthority> extractAuthorityFromClaims(Map<String, Object> claims) {
         return mapRolesToGrantedAuthorities(getRolesFromClaims(claims));
     }
