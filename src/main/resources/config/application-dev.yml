@@ -132,3 +132,5 @@ pdp:
     maxAttempts: 2
     backoff:
       milliseconds: 250
+upload:
+  path: /tmp
