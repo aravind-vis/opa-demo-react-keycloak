@@ -12,5 +12,6 @@ public interface RoleMapper extends EntityMapper<RoleDTO, Role> {
     @Named("id")
     @BeanMapping(ignoreByDefault = true)
     @Mapping(target = "id", source = "id")
+    @Mapping(target = "roleName", source = "roleName")
     RoleDTO toDtoId(Role role);
 }
