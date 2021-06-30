@@ -94,7 +94,7 @@ export const Project = (props: RouteComponentProps<{ url: string }>) => {
   const { match } = props;
 
   const navigateToRoleMap = () => {
-    window.location.href = 'http://localhost:9000/project-user-role-map/new?idx=1';
+    window.location.href = 'http://' + window.location.host + '/project-user-role-map/new';
   };
 
   return (
