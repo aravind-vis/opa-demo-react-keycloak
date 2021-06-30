@@ -53,10 +53,10 @@ export const ProjectUserRoleMap = (props: RouteComponentProps<{ url: string }>) 
                   <Translate contentKey="opademoreactkeycloakApp.projectUserRoleMap.user">User</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="opademoreactkeycloakApp.projectUserRoleMap.projectId">Project Id</Translate>
+                  <Translate contentKey="opademoreactkeycloakApp.projectUserRoleMap.projectId">Project Name</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="opademoreactkeycloakApp.projectUserRoleMap.roleId">Role Id</Translate>
+                  <Translate contentKey="opademoreactkeycloakApp.projectUserRoleMap.roleId">Role Name</Translate>
                 </th>
                 <th />
               </tr>
@@ -72,14 +72,14 @@ export const ProjectUserRoleMap = (props: RouteComponentProps<{ url: string }>) 
                   <td>{projectUserRoleMap.user}</td>
                   <td>
                     {projectUserRoleMap.projectId ? (
-                      <Link to={`project/${projectUserRoleMap.projectId.id}`}>{projectUserRoleMap.projectId.id}</Link>
+                      <Link to={`project/${projectUserRoleMap.projectId.id}`}>{projectUserRoleMap.projectId.name}</Link>
                     ) : (
                       ''
                     )}
                   </td>
                   <td>
                     {projectUserRoleMap.roleId ? (
-                      <Link to={`role/${projectUserRoleMap.roleId.id}`}>{projectUserRoleMap.roleId.id}</Link>
+                      <Link to={`role/${projectUserRoleMap.roleId.id}`}>{projectUserRoleMap.roleId.roleName}</Link>
                     ) : (
                       ''
                     )}
