@@ -63,12 +63,12 @@ export const ProjectUserRoleMapUpdate = (props: RouteComponentProps<{ id: string
     }
   };
 
-  var defaultProjectName;
-  var defaultRoleName = '';
+  let defaultProjectName = '';
+  let defaultRoleName = '';
 
   const url = window.location.href;
   if (url.indexOf('?') > -1 && RoleDetail.length > 0) {
-    const index = parseInt(url.substring(url.indexOf('=') + 1));
+    const index = parseInt(url.substring(url.indexOf('=') + 1), 10);
     defaultProjectName = projects.length > index ? projects[index].name : '';
     defaultRoleName = roles.length > index ? roles[index].roleName : '';
   }
