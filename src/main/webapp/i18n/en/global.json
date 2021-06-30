@@ -128,6 +128,7 @@
     "internalServerError": "Internal server error",
     "server.not.reachable": "Server not reachable",
     "url.not.found": "Not found",
+    "permission.denied": "You do not have permission to perform the action",
     "NotNull": "Field {{ fieldName }} cannot be empty!",
     "Size": "Field {{ fieldName }} does not meet min/max size requirements!",
     "userexists": "Login name already used!",

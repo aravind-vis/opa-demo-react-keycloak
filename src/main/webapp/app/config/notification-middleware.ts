@@ -87,7 +87,7 @@ export default () => next => action => {
             break;
 
           case 403:
-            addErrorAlert('Project not created', "User doesn't have enough permission.", data);
+            addErrorAlert('Project not created', 'error.permission.denied', data);
             break;
 
           default:
