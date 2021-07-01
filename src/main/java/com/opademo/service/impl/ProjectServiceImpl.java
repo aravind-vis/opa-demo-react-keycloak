@@ -118,6 +118,9 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public void delete(Long id) {
+        if (!opaClient.authRequest("DELETE_PROJECT", projectMapService.getAuthInputMap(projectRepository.getOne(id)))) {
+            throw new AccessDeniedException("Access Denied");
+        }
         log.debug("Request to delete Project : {}", id);
         projectRepository.deleteById(id);
     }
