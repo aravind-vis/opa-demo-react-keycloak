@@ -10,14 +10,13 @@ allow{
 
 allow{
     operation := input.operation
-    operation == "SHARE_PROJECT"
     user := input.user
     user == input.owner
 }
 
 allow{
     operation := input.operation
-    operation == "SHARE_PROJECT"
     some i
     data.opademo.roles.permissions.acls[input.projectRole[i]][_] == operation
+    data.opademo.roles.permissions.acls[input.userRole[i]][_] == operation
 }

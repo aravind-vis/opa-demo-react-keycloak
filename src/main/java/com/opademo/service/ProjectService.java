@@ -17,6 +17,8 @@ public interface ProjectService {
      */
     ProjectDTO save(ProjectDTO projectDTO);
 
+    ProjectDTO save(ProjectDTO projectDTO, boolean createProject);
+
     /**
      * Partially updates a project.
      *
