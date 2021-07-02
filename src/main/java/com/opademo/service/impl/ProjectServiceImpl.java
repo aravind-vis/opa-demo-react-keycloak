@@ -16,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -106,7 +107,7 @@ public class ProjectServiceImpl implements ProjectService {
     @Transactional(readOnly = true)
     public Page<ProjectDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Projects");
-        return projectRepository.findAll(pageable).map(projectMapper::toDto);
+        return projectRepository.findAllowedProjects(SecurityUtils.getCurrentUserLogin().orElse("NA"), pageable).map(projectMapper::toDto);
     }
 
     @Override
