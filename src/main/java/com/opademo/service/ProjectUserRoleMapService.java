@@ -1,6 +1,8 @@
 package com.opademo.service;
 
+import com.opademo.domain.Project;
 import com.opademo.service.dto.ProjectUserRoleMapDTO;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,6 +17,8 @@ public interface ProjectUserRoleMapService {
      * @return the persisted entity.
      */
     ProjectUserRoleMapDTO save(ProjectUserRoleMapDTO projectUserRoleMapDTO, boolean validate);
+
+    HashMap<String, Object> getAuthInputMap(Project project);
 
     /**
      * Partially updates a projectUserRoleMap.

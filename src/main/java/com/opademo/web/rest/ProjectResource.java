@@ -67,7 +67,7 @@ public class ProjectResource {
         if (projectDTO.getId() != null) {
             throw new BadRequestAlertException("A new project cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        var result = projectService.save(projectDTO);
+        var result = projectService.save(projectDTO, true);
         return ResponseEntity
             .created(new URI("/api/projects/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
