@@ -12,15 +12,13 @@ import com.opademo.service.ProjectUserRoleMapService;
 import com.opademo.service.dto.ProjectDTO;
 import com.opademo.service.dto.ProjectUserRoleMapDTO;
 import com.opademo.service.mapper.ProjectUserRoleMapMapper;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -81,9 +79,11 @@ public class ProjectUserRoleMapServiceImpl implements ProjectUserRoleMapService 
             var projectRole = projectUserRoleMapRepository.findProjectUserRoleMapByUser(user);
             var roleList = projectRole.stream().map(p -> p.getRoleId().getRoleName()).collect(Collectors.toList());
 
-            var userFromDB = userRepository.findOneByLogin(user);
             inputMap.put("projectRole", roleList);
-            inputMap.put("userRole", userFromDB.get().getAuthorities());
+            inputMap.put(
+                "userRole",
+                ((DefaultOidcUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getAttributes().get("roles")
+            );
         }
         return inputMap;
     }

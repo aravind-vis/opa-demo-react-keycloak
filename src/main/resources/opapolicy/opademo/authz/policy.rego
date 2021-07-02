@@ -1,5 +1,6 @@
 package opademo.authz
 
+
 default allow = false
 
 allow{
@@ -14,9 +15,12 @@ allow{
     user == input.owner
 }
 
-allow{
+
+allow {
     operation := input.operation
     some i
+    some j
+    input.projectRole[i] == input.userRole[j]
     data.opademo.roles.permissions.acls[input.projectRole[i]][_] == operation
-    data.opademo.roles.permissions.acls[input.userRole[i]][_] == operation
+    data.opademo.roles.permissions.acls[input.userRole[j]][_] == operation
 }
