@@ -1,0 +1,36 @@
+{
+  "name": "ProjectUserRoleMap",
+  "fields": [
+    {
+      "fieldName": "user",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "project",
+      "otherEntityRelationshipName": "projectUserRoleMap",
+      "relationshipName": "projectId",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "role",
+      "otherEntityRelationshipName": "projectUserRoleMap",
+      "relationshipName": "roleId",
+      "ownerSide": true
+    }
+  ],
+  "entityTableName": "project_user_role_map",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210628133110"
+}

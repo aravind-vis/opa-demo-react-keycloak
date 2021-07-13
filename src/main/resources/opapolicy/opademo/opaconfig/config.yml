@@ -1,0 +1,12 @@
+services:
+  - name: localhost
+    url: http://host.docker.internal:8000
+
+bundles:
+  authz:
+    service: localhost
+    resource: policy/bundle.tar.gz
+    persist: true
+    polling:
+      min_delay_seconds: 5
+      max_delay_seconds: 10

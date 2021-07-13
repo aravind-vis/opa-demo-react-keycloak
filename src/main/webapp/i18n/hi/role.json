@@ -1,0 +1,17 @@
+{
+  "opademoreactkeycloakApp": {
+    "role": {
+      "home": {
+        "title": "Roles",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Roles found"
+      },
+      "detail": {
+        "title": "Role"
+      },
+      "id": "Id",
+      "roleName": "Role Name",
+      "roleDescription": "Role Description"
+    }
+  }
+}

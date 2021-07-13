@@ -249,6 +249,9 @@ dependencies {
     implementation "io.springfox:springfox-bean-validators"
     implementation "org.postgresql:postgresql"
     liquibaseRuntime "org.postgresql:postgresql"
+    implementation 'build.security:opa-java-spring-client:0.3.2'
+    implementation 'org.springframework.retry:spring-retry'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.2'
     implementation "org.mapstruct:mapstruct:${mapstructVersion}"
     annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
     annotationProcessor "org.hibernate:hibernate-jpamodelgen:${hibernateVersion}"

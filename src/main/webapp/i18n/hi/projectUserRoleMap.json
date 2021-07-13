@@ -1,0 +1,26 @@
+{
+  "opademoreactkeycloakApp": {
+    "projectUserRoleMap": {
+      "home": {
+        "title": "ProjectUserRoleMaps",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नया Project User Role Map बनाएँ",
+        "createOrEditLabel": "Project User Role Map बनाएँ या संपादित करें",
+        "notFound": "No Project User Role Maps found"
+      },
+      "created": "एक नया Project User Role Map [identifier: {{ param }}] तैयार है",
+      "updated": "एक Project User Role Map [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Project User Role Map [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Project User Role Map [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Project User Role Map"
+      },
+      "id": "ID",
+      "user": "User",
+      "projectId": "Project Id",
+      "roleId": "Role Id"
+    }
+  }
+}

@@ -7,6 +7,9 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "project": "Project",
+        "role": "Role",
+        "projectUserRoleMap": "Project User Role Map",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
@@ -97,7 +100,8 @@
       "edit": "Edit",
       "open": "Open",
       "save": "Save",
-      "view": "View"
+      "view": "View",
+      "share": "Share"
     },
     "detail": {
       "field": "Field",
@@ -124,6 +128,7 @@
     "internalServerError": "Internal server error",
     "server.not.reachable": "Server not reachable",
     "url.not.found": "Not found",
+    "permission.denied": "You do not have permission to perform the action",
     "NotNull": "Field {{ fieldName }} cannot be empty!",
     "Size": "Field {{ fieldName }} does not meet min/max size requirements!",
     "userexists": "Login name already used!",

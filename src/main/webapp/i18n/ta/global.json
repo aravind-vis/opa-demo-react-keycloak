@@ -7,6 +7,9 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "பொருள்கள்",
+        "project": "Project",
+        "role": "Role",
+        "projectUserRoleMap": "Project User Role Map",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
@@ -121,6 +124,7 @@
     "internalServerError": "Internal server error",
     "server.not.reachable": "சர்வரை அடைய முடியவில்லை",
     "url.not.found": "Not found",
+    "permission.denied": "You do not have permission to perform the action",
     "NotNull": "களம் {{fieldName}} காலியாக இருக்க கூடாது!",
     "Size": "களம் {{fieldName}} தேவைகள் பூர்த்தி செய்யவில்லை!",
     "userexists": "உள் நுழை பெயர் எடுக்கப்பட்டது!",

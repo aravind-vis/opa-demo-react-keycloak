@@ -1,0 +1,26 @@
+{
+  "opademoreactkeycloakApp": {
+    "project": {
+      "home": {
+        "title": "Projects",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नया Project बनाएँ",
+        "createOrEditLabel": "Project बनाएँ या संपादित करें",
+        "notFound": "No Projects found"
+      },
+      "created": "एक नया Project [identifier: {{ param }}] तैयार है",
+      "updated": "एक Project [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Project [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Project [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Project"
+      },
+      "id": "Id",
+      "name": "Name",
+      "owner": "Owner",
+      "createdOn": "Created On"
+    }
+  }
+}

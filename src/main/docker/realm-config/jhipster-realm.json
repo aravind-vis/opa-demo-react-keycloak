@@ -52,6 +52,15 @@
         "attributes": {}
       },
       {
+        "id": "7b967d27-874c-4a68-a6bd-cf1768cba956",
+        "name": "ROLE_CREATOR",
+        "description": "User has creator permission within the project",
+        "composite": false,
+        "clientRole": false,
+        "containerId": "jhipster",
+        "attributes": {}
+      },
+      {
         "id": "e1b19afd-f612-4a79-bdf8-26a99b89b10b",
         "name": "offline_access",
         "description": "${role_offline-access}",

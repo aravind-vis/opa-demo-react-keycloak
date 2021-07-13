@@ -1,0 +1,26 @@
+{
+  "opademoreactkeycloakApp": {
+    "projectUserRoleMap": {
+      "home": {
+        "title": "Project User Role Maps",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Project User Role Map-ஐ உருவாக்கு",
+        "createOrEditLabel": "Project User Role Map -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Project User Role Maps found"
+      },
+      "created": "Project User Role Map புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Project User Role Map மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Project User Role Map நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Project User Role Map {{ id }}?"
+      },
+      "detail": {
+        "title": "Project User Role Map"
+      },
+      "id": "ID",
+      "user": "User",
+      "projectId": "Project Id",
+      "roleId": "Role Id"
+    }
+  }
+}

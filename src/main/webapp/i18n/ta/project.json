@@ -1,0 +1,26 @@
+{
+  "opademoreactkeycloakApp": {
+    "project": {
+      "home": {
+        "title": "Projects",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Project-ஐ உருவாக்கு",
+        "createOrEditLabel": "Project -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Projects found"
+      },
+      "created": "Project புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Project மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Project நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Project {{ id }}?"
+      },
+      "detail": {
+        "title": "Project"
+      },
+      "id": "Id",
+      "name": "Name",
+      "owner": "Owner",
+      "createdOn": "Created On"
+    }
+  }
+}

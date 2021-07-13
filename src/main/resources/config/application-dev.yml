@@ -19,6 +19,7 @@ logging:
     tech.jhipster: DEBUG
     org.hibernate.SQL: DEBUG
     com.opademo: DEBUG
+    org.apache: DEBUG
 
 eureka:
   instance:
@@ -62,7 +63,7 @@ spring:
     database-platform: tech.jhipster.domain.util.FixedH2Dialect
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
-    contexts: dev, faker
+    contexts: dev
   messages:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
   thymeleaf:
@@ -115,3 +116,21 @@ jhipster:
 # ===================================================================
 
 # application:
+
+pdp:
+  enable: true
+  allowOnFailure: false
+  port: 8181
+  hostname: localhost
+  policy:
+    path: /opademo/authz
+  readTimeout:
+    milliseconds: 5000
+  connectionTimeout:
+    milliseconds: 5000
+  retry:
+    maxAttempts: 2
+    backoff:
+      milliseconds: 250
+upload:
+  path: /tmp

@@ -6,6 +6,12 @@ import applicationProfile, { ApplicationProfileState } from './application-profi
 
 import administration, { AdministrationState } from 'app/modules/administration/administration.reducer';
 import userManagement, { UserManagementState } from './user-management';
+// prettier-ignore
+import project from 'app/entities/project/project.reducer';
+// prettier-ignore
+import role from 'app/entities/role/role.reducer';
+// prettier-ignore
+import projectUserRoleMap from 'app/entities/project-user-role-map/project-user-role-map.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 const rootReducer = {
@@ -14,6 +20,9 @@ const rootReducer = {
   applicationProfile,
   administration,
   userManagement,
+  project,
+  role,
+  projectUserRoleMap,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
   loadingBar,
 };

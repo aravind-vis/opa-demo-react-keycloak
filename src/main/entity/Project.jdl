@@ -1,0 +1,26 @@
+entity Project{
+    id Long required,
+    name String required minlength(3),
+    owner String required,
+    createdOn Instant required
+}
+
+entity Role{
+    id Long required,
+    roleName String required minlength(4),
+    roleDescription String
+}
+
+entity ProjectUserRoleMap{
+    user String required
+}
+
+relationship OneToOne{
+    ProjectUserRoleMap{projectId} to Project,
+    ProjectUserRoleMap{roleId} to Role
+}
+
+paginate Project with infinite-scroll
+readOnly Role
+dto * with mapstruct
+service * with serviceImpl
