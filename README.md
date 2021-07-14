@@ -2,6 +2,16 @@
 
 This application was generated using JHipster 7.1.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v7.1.0](https://www.jhipster.tech/documentation-archive/v7.1.0).
 
+##To Run the Project
+
+From the root of the project, please execute -
+
+1. Start KeyCloak - `docker-compose -f src/main/docker/keycloak.yml up -d`
+2. Start any file server to serve the OPA Policy as a bundle file under the link http://localhost:8000/policy/bundle.tar.gz ([https://mongoose.ws](Mongoose File server) is a good option).
+   (Copy the bundle.tar.gz under the src/main/resources/opapolicy/opademo/bundle/bundle.tar.gz)
+3. Start OPA Agent - `docker run -it --rm -p 8181:8181 -v `pwd`/config:/src/main/resources/opapolicy/opademo/opaconfig openpolicyagent/opa:latest run --server --addr :8181 -csrc/main/resources/opapolicy/opademo/opaconfig/config.yml`
+4. Start the application with `./gradlew`
+
 ## Development
 
 Before you can build this project, you must install and configure the following dependencies on your machine:
